@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Chamada VOIP</title>
+    
+    <link rel="stylesheet" href="css/click2call/click2call.css" />
+    <script src="webphone_api.js?jscodeversion=783"></script>
+    <script src="js/click2call/click2call.js?jscodeversion=783"></script>
+    <script>
+        webphone_api.parameters['autostart'] = false; 
+        webphone_api.onLoaded(function ()
+        {
+            webphone_api.setparameter('serveraddress', 'sip.voipraider.com'); 
+            webphone_api.setparameter('username', 'eder_ferreira1');
+            webphone_api.setparameter('password', 'eefm2382');
+            webphone_api.setparameter('callto', 'DESTINATION');
+            webphone_api.setparameter('autoaction', '0');
+        });
+    </script>
+</head>
+<body style="margin: 0; font-family: Verdana ; font-size: 12px; color:#2e3d47; line-height: 155%;">
+    <div id="c2k_container_0" title="" style="text-align: center;">
+    </div>
+</body>
+</html>

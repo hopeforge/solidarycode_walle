@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.indracompany</groupId>
+		<artifactId>walle</artifactId>
+		<version>1.0</version>
+		<relativePath>../..</relativePath>
+	</parent>
+
+	<artifactId>walle-controller</artifactId>
+	<packaging>war</packaging>
+
+	<name>walle-controller</name>
+
+	<properties>
+		<start-class>com.indracompany.walle.WalleControllerApplication</start-class>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.indracompany</groupId>
+			<artifactId>walle-model</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.1.0</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.sun.xml.bind</groupId>
+		    <artifactId>jaxb-impl</artifactId>
+		    <version>2.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+
+		<finalName>walle</finalName>
+		<!-- <resources> <resource> <directory>src/main/resources</directory> <filtering>true</filtering> 
+			</resource> </resources> -->
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<webResources>
+						<webResource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+						</webResource>
+					</webResources>
+					<archive>
+						<manifest>
+							<addDefaultImplementationEntries>false</addDefaultImplementationEntries>
+							<mainClass>
+								com.indracompany.walle.WalleControllerApplication
+							</mainClass>							
+						</manifest>
+					</archive>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+							<configuration>
+								<classifier>spring-boot</classifier>
+								<mainClass>
+									com.indracompany.walle.WalleControllerApplication
+								</mainClass>
+							</configuration>
+						</execution>
+					</executions>
+				</plugin>
+
+
+		</plugins>
+	</build>
+
+
+</project>
